@@ -1,0 +1,455 @@
+{
+ "_schema": "Prix en USD/M tokens (catalogue OpenRouter, moins cher des 5 hébergeurs, tarif standard). intel = AA Intelligence Index (effort max). coding_agent = AA Coding Agent Index (meilleur couple agent+modèle). swe.kind: P=SWE-bench Pro, V=Verified. mmmu.kind: ''=AA sans outils, '°'=effort normal. budget (V/O/R) = prix de sortie: V<=2.50, O<=8, R>8. usage (V/O/R) = jugement scores/prix. null = n.d. openrouter_ids = slugs OpenRouter (le premier qui répond est utilisé). hosts/price_in/price_out/discount/budget sont mis à jour chaque jour par scripts/refresh_prices.py ; le reste par la tâche hebdomadaire.",
+ "date_label": "4 novembre 2026",
+ "models": [
+  {
+   "vendor": "Anthropic",
+   "model": "Claude Haiku 5.5",
+   "hosts": "Bedrock · Vertex · Azure",
+   "price_in": 0.1,
+   "price_out": 0.5,
+   "intel": 36,
+   "coding_agent": 37.3,
+   "swe": {
+    "value": "64,8",
+    "kind": "P"
+   },
+   "mmmu": null,
+   "speed": 235,
+   "budget": "V",
+   "usage": "V",
+   "note": "Le meilleur des petits prix",
+   "openrouter_ids": [
+    "anthropic/claude-haiku-5.5"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "OpenAI",
+   "model": "GPT-6 Luna",
+   "hosts": "Bedrock · Azure",
+   "price_in": 0.1,
+   "price_out": 0.5,
+   "intel": 28,
+   "coding_agent": 31.1,
+   "swe": null,
+   "mmmu": null,
+   "speed": 111,
+   "budget": "V",
+   "usage": "V",
+   "note": "Tâches simples, même prix que Haiku",
+   "openrouter_ids": [
+    "openai/gpt-6-luna"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "Z.ai",
+   "model": "GLM-5.3 Flash",
+   "hosts": "Mistral · Inceptron",
+   "price_in": 0.15,
+   "price_out": 0.5,
+   "intel": 28,
+   "coding_agent": null,
+   "swe": {
+    "value": "79,1",
+    "kind": "V"
+   },
+   "mmmu": null,
+   "speed": 71,
+   "budget": "V",
+   "usage": "V",
+   "note": "Gros volume, très bon marché",
+   "openrouter_ids": [
+    "z-ai/glm-5.3-flash"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "DeepSeek",
+   "model": "DeepSeek V4.1 Flash",
+   "hosts": "Vertex · Mistral",
+   "price_in": 0.3,
+   "price_out": 1.2,
+   "intel": 33,
+   "coding_agent": 47.3,
+   "swe": null,
+   "mmmu": null,
+   "speed": 165,
+   "budget": "V",
+   "usage": "V",
+   "note": "Codage agent au niveau de Large 4",
+   "openrouter_ids": [
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash-1017"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "Mistral",
+   "model": "Devstral 2 (2512)",
+   "hosts": "Mistral",
+   "price_in": 0.4,
+   "price_out": 2.0,
+   "intel": null,
+   "coding_agent": null,
+   "swe": null,
+   "mmmu": null,
+   "speed": null,
+   "budget": "V",
+   "usage": "R",
+   "note": "Remplacé par Medium 3.5",
+   "openrouter_ids": [
+    "mistralai/devstral-2512"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "Google",
+   "model": "Gemini 3.5 Flash-Lite",
+   "hosts": "Vertex",
+   "price_in": 0.3,
+   "price_out": 2.5,
+   "intel": 12,
+   "coding_agent": null,
+   "swe": null,
+   "mmmu": null,
+   "speed": 402,
+   "budget": "V",
+   "usage": "O",
+   "note": "Extraction, tri, très rapide",
+   "openrouter_ids": [
+    "google/gemini-3.5-flash-lite"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "Mistral",
+   "model": "Mistral Large 4",
+   "hosts": "Mistral",
+   "price_in": 0.7,
+   "price_out": 2.1,
+   "intel": 26,
+   "coding_agent": 48.3,
+   "swe": null,
+   "mmmu": null,
+   "speed": null,
+   "budget": "V",
+   "usage": "V",
+   "note": "Option 100 % française",
+   "openrouter_ids": [
+    "mistralai/mistral-large-4-0"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "Moonshot",
+   "model": "Kimi K2.7 Code",
+   "hosts": "Inceptron",
+   "price_in": 0.6,
+   "price_out": 3.5,
+   "intel": null,
+   "coding_agent": null,
+   "swe": null,
+   "mmmu": null,
+   "speed": 45,
+   "budget": "O",
+   "usage": "O",
+   "note": "Spécialisé code, non évalué",
+   "openrouter_ids": [
+    "moonshotai/kimi-k2.7-code"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "Google",
+   "model": "Gemini 3.8 Flash",
+   "hosts": "Vertex",
+   "price_in": 0.75,
+   "price_out": 3.75,
+   "intel": 31,
+   "coding_agent": 33.3,
+   "swe": null,
+   "mmmu": {
+    "value": "85,6",
+    "kind": ""
+   },
+   "speed": 131,
+   "budget": "O",
+   "usage": "R",
+   "note": "Moins bon que Haiku, plus cher",
+   "openrouter_ids": [
+    "google/gemini-3.8-flash"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "Z.ai",
+   "model": "GLM-5.3",
+   "hosts": "Inceptron · Mistral · Bedrock",
+   "price_in": 1.4,
+   "price_out": 3.96,
+   "intel": 32,
+   "coding_agent": 48.9,
+   "swe": null,
+   "mmmu": null,
+   "speed": 86,
+   "budget": "O",
+   "usage": "O",
+   "note": "Codage agent open-weights",
+   "openrouter_ids": [
+    "z-ai/glm-5.3"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "OpenAI",
+   "model": "GPT-6.1 Terra",
+   "hosts": "Bedrock · Azure",
+   "price_in": 1.1,
+   "price_out": 5.5,
+   "intel": 51,
+   "coding_agent": 48.2,
+   "swe": null,
+   "mmmu": {
+    "value": "76,0",
+    "kind": "°"
+   },
+   "speed": 109,
+   "budget": "O",
+   "usage": "O",
+   "note": "Bon compromis milieu de gamme",
+   "openrouter_ids": [
+    "openai/gpt-6.1-terra"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "DeepSeek",
+   "model": "DeepSeek V4 Pro",
+   "hosts": "Azure",
+   "price_in": 1.91,
+   "price_out": 3.83,
+   "intel": 23,
+   "coding_agent": null,
+   "swe": {
+    "value": "80,6",
+    "kind": "V"
+   },
+   "mmmu": null,
+   "speed": 81,
+   "budget": "O",
+   "usage": "R",
+   "note": "Moins bon que V4.1 Flash",
+   "openrouter_ids": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "Mistral",
+   "model": "Mistral Medium 3.5",
+   "hosts": "Mistral",
+   "price_in": 1.5,
+   "price_out": 7.5,
+   "intel": null,
+   "coding_agent": null,
+   "swe": {
+    "value": "77,6",
+    "kind": "V"
+   },
+   "mmmu": null,
+   "speed": 162,
+   "budget": "O",
+   "usage": "O",
+   "note": "Multimodal + code, peu évalué",
+   "openrouter_ids": [
+    "mistralai/mistral-medium-3-5"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "OpenAI",
+   "model": "GPT-6.1 Sol",
+   "hosts": "Bedrock · Azure",
+   "price_in": 2.0,
+   "price_out": 10.0,
+   "intel": 55,
+   "coding_agent": 54.1,
+   "swe": null,
+   "mmmu": {
+    "value": "86,0",
+    "kind": ""
+   },
+   "speed": 74,
+   "budget": "R",
+   "usage": "O",
+   "note": "Tâches longues, 20× le prix de Haiku",
+   "openrouter_ids": [
+    "openai/gpt-6.1-sol"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "Anthropic",
+   "model": "Claude Sonnet 5.5",
+   "hosts": "Bedrock · Vertex · Azure",
+   "price_in": 2.0,
+   "price_out": 10.0,
+   "intel": 55,
+   "coding_agent": 59.3,
+   "swe": {
+    "value": "81,3",
+    "kind": "P"
+   },
+   "mmmu": null,
+   "speed": 139,
+   "budget": "R",
+   "usage": "O",
+   "note": "Agent multi-fichiers, effort medium",
+   "openrouter_ids": [
+    "anthropic/claude-sonnet-5.5"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "Google",
+   "model": "Gemini 4 Argon",
+   "hosts": "Vertex",
+   "price_in": 2.0,
+   "price_out": 10.0,
+   "intel": 50,
+   "coding_agent": 53.2,
+   "swe": null,
+   "mmmu": null,
+   "speed": 82,
+   "budget": "R",
+   "usage": "O",
+   "note": "Automatisation, n°1 AutomationBench",
+   "openrouter_ids": [
+    "google/gemini-4-argon"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "Moonshot",
+   "model": "Kimi K3",
+   "hosts": "Bedrock",
+   "price_in": 3.0,
+   "price_out": 15.0,
+   "intel": null,
+   "coding_agent": 41.4,
+   "swe": {
+    "value": "93,4",
+    "kind": "V"
+   },
+   "mmmu": {
+    "value": "80,5",
+    "kind": ""
+   },
+   "speed": null,
+   "budget": "R",
+   "usage": "R",
+   "note": "Cher, en retrait en codage agent",
+   "openrouter_ids": [
+    "moonshotai/kimi-k3"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "Anthropic",
+   "model": "Claude Opus 5.5",
+   "hosts": "Bedrock · Vertex · Azure",
+   "price_in": 4.0,
+   "price_out": 20.0,
+   "intel": 59,
+   "coding_agent": 61.7,
+   "swe": {
+    "value": "89,9",
+    "kind": "P"
+   },
+   "mmmu": {
+    "value": "87,7",
+    "kind": ""
+   },
+   "speed": 94,
+   "budget": "R",
+   "usage": "O",
+   "note": "Archi, bugs durs, revue sécu",
+   "openrouter_ids": [
+    "anthropic/claude-opus-5.5"
+   ],
+   "discount": 0
+  },
+  {
+   "vendor": "OpenAI",
+   "model": "GPT-6 Astra",
+   "hosts": "Bedrock · Azure",
+   "price_in": 10.0,
+   "price_out": 50.0,
+   "intel": 57,
+   "coding_agent": 54.7,
+   "swe": null,
+   "mmmu": {
+    "value": "86,9",
+    "kind": ""
+   },
+   "speed": 67,
+   "budget": "R",
+   "usage": "R",
+   "note": "5× le prix de Sol pour +2 points",
+   "openrouter_ids": [
+    "openai/gpt-6-astra"
+   ],
+   "discount": 0
+  }
+ ],
+ "recos": [
+  {
+   "title": "Tous les jours",
+   "code": "V",
+   "names": "Haiku 5.5 · DeepSeek V4.1 Flash · Luna",
+   "text": "Haiku 5.5 et Luna coûtent 0,10 / 0,50 $, 20× moins que Sol. À prix égal, Haiku fait mieux (36 contre 28, codage agent 37 contre 31). DeepSeek V4.1 Flash monte à 47 en codage agent, comme Mistral Large 4. GLM-5.3 Flash pour le très gros volume."
+  },
+  {
+   "title": "Cas précis",
+   "code": "O",
+   "names": "Opus 5.5 · Sonnet 5.5 · Sol · Terra",
+   "text": "Opus 5.5 est n°1 en codage agent (61,7) : archi, bugs coriaces, revues. Sonnet et Sol (2 / 10 $) pour les tâches longues, Sonnet en effort medium. Terra (1,10 / 5,50 $) est le compromis milieu de gamme, Argon pour l’automatisation."
+  },
+  {
+   "title": "À éviter",
+   "code": "R",
+   "names": "Astra · Gemini 3.8 Flash · Kimi K3 · DeepSeek V4 Pro",
+   "text": "Astra coûte 5× Sol pour 2 points de plus. Gemini 3.8 Flash fait moins bien que Haiku pour 7× le prix en sortie. Kimi K3 et DeepSeek V4 Pro sont battus par moins cher. Devstral 2 est remplacé par Medium 3.5."
+  }
+ ],
+ "notes": [
+  {
+   "title": "Hébergeurs retenus",
+   "text": "Uniquement Amazon Bedrock, Azure, Google Vertex, Inceptron et Mistral, en ZDR. Les modèles chinois y sont servis par ces hébergeurs, pas par leur éditeur : Kimi K3.1 Pro (Moonshot seul) est absent."
+  },
+  {
+   "title": "Prix",
+   "text": "Catalogue OpenRouter au 04/11/2026, chez le moins cher des cinq hébergeurs, tarif standard. Les endpoints régionaux EU coûtent environ 10 % de plus. Vertex propose aussi un tarif flex à -50 % sur Gemini."
+  },
+  {
+   "title": "Google / Gemini",
+   "text": "Depuis le 18/10/2026, Vertex applique une « Safety Retention » (prompts signalés gardés jusqu’à 90 j, sans entraînement) : pas du ZDR strict. Choisir « Zero retention only »."
+  },
+  {
+   "title": "Lecture des scores",
+   "text": "Intelligence : AA Index, effort max (04/11/2026). Codage avancé : AA Coding Agent Index, couple agent + modèle (29/10/2026). SWE-bench : éditeurs (P = Pro, V = Verified), sauf Kimi K3 (Vals.ai) ; non comparables entre eux. MMMU-Pro : runs AA sans outils."
+  }
+ ],
+ "sources": "OpenRouter, pages hébergeurs Bedrock, Azure, Vertex, Inceptron et Mistral (04/11/2026) · Artificial Analysis, classement des modèles (04/11/2026) · AA Coding Agent Index via BenchLM (29/10/2026) · MMMU-Pro AA via LLM Learner · SWE-bench : Anthropic, Mistral, Z.ai, DeepSeek, Vals.ai. Prix en USD.",
+ "prices_checked": "2026-11-04",
+ "scores_checked": "2026-11-04",
+ "providers": {
+  "amazon-bedrock": "Bedrock",
+  "azure": "Azure",
+  "google-vertex": "Vertex",
+  "inceptron": "Inceptron",
+  "mistral": "Mistral"
+ }
+}

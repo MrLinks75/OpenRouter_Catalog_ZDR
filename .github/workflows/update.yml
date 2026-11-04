@@ -1,0 +1,65 @@
+name: Mise à jour et publication
+
+on:
+  schedule:
+    - cron: "17 5 * * *"   # tous les jours, 5 h 17 UTC : prix OpenRouter
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Prix et hébergeurs (API OpenRouter)
+        if: github.event_name != 'push'
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python3 scripts/refresh_prices.py data/models.json
+
+      - name: Commit des données
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "Aucun changement."
+          else
+            git commit -m "Prix OpenRouter du $(date -u +%F)"
+            git push
+          fi
+
+      - name: Génération de la page
+        run: python3 scripts/build.py data/models.json site --page
+
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
