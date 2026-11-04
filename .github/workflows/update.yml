@@ -27,13 +27,13 @@ jobs:
           python-version: "3.12"
 
       - name: Prix et hébergeurs (API OpenRouter)
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' || contains(github.event.head_commit.message, '[prix]')
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: python3 scripts/refresh_prices.py data/models.json
 
       - name: Commit des données
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' || contains(github.event.head_commit.message, '[prix]')
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

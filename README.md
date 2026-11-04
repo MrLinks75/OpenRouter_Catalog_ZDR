@@ -28,6 +28,8 @@ Toutes les valeurs sont dans [`data/models.json`](data/models.json) (le champ `_
 2. Optionnel : secret `OPENROUTER_API_KEY` (Settings → Secrets and variables → Actions). L'API utilisée est publique, la clé n'est pas obligatoire.
 3. Lancer le workflow *Mise à jour et publication* une première fois (onglet Actions → Run workflow).
 
+Un push dont le message de commit contient `[prix]` lance aussi la mise à jour des prix (sinon, un push ne fait que régénérer la page).
+
 ## En local
 
 ```bash
