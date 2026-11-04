@@ -68,7 +68,7 @@
   {
    "vendor": "DeepSeek",
    "model": "DeepSeek V4.1 Flash",
-   "hosts": "Vertex",
+   "hosts": "Vertex · Mistral",
    "price_in": 0.3,
    "price_out": 1.2,
    "intel": 33,

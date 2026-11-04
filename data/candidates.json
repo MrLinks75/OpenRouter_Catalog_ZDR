@@ -9,15 +9,6 @@
   "discount": 0.0
  },
  {
-  "id": "google/gemini-4-argon:batch",
-  "name": "Google: Gemini 4 Argon (batch)",
-  "created": "2026-10-13",
-  "hosts": "Vertex",
-  "price_in": 1.0,
-  "price_out": 5.0,
-  "discount": 0.5
- },
- {
   "id": "openai/gpt-6.1-sol-pro",
   "name": "OpenAI: GPT-6.1 Sol Pro",
   "created": "2026-09-29",
