@@ -1,0 +1,56 @@
+[
+ {
+  "id": "openai/gpt-6.1-terra-pro",
+  "name": "OpenAI: GPT-6.1 Terra Pro",
+  "created": "2026-10-26",
+  "hosts": "Azure",
+  "price_in": 1.0,
+  "price_out": 5.0,
+  "discount": 0.0
+ },
+ {
+  "id": "google/gemini-4-argon:batch",
+  "name": "Google: Gemini 4 Argon (batch)",
+  "created": "2026-10-13",
+  "hosts": "Vertex",
+  "price_in": 1.0,
+  "price_out": 5.0,
+  "discount": 0.5
+ },
+ {
+  "id": "openai/gpt-6.1-sol-pro",
+  "name": "OpenAI: GPT-6.1 Sol Pro",
+  "created": "2026-09-29",
+  "hosts": "Azure",
+  "price_in": 2.0,
+  "price_out": 10.0,
+  "discount": 0.0
+ },
+ {
+  "id": "openai/gpt-6-luna-pro",
+  "name": "OpenAI: GPT-6 Luna Pro",
+  "created": "2026-09-22",
+  "hosts": "Azure",
+  "price_in": 0.1,
+  "price_out": 0.5,
+  "discount": 0.0
+ },
+ {
+  "id": "openai/gpt-6-sol-pro",
+  "name": "OpenAI: GPT-6 Sol Pro",
+  "created": "2026-09-22",
+  "hosts": "Azure",
+  "price_in": 2.0,
+  "price_out": 10.0,
+  "discount": 0.0
+ },
+ {
+  "id": "openai/gpt-6-sol",
+  "name": "OpenAI: GPT-6 Sol",
+  "created": "2026-09-22",
+  "hosts": "Bedrock · Azure",
+  "price_in": 2.0,
+  "price_out": 10.0,
+  "discount": 0.0
+ }
+]

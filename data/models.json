@@ -5,7 +5,7 @@
   {
    "vendor": "Anthropic",
    "model": "Claude Haiku 5.5",
-   "hosts": "Bedrock · Vertex · Azure",
+   "hosts": "Bedrock · Azure · Vertex",
    "price_in": 0.1,
    "price_out": 0.5,
    "intel": 36,
@@ -46,7 +46,7 @@
   {
    "vendor": "Z.ai",
    "model": "GLM-5.3 Flash",
-   "hosts": "Mistral · Inceptron",
+   "hosts": "Inceptron · Mistral",
    "price_in": 0.15,
    "price_out": 0.5,
    "intel": 28,
@@ -68,7 +68,7 @@
   {
    "vendor": "DeepSeek",
    "model": "DeepSeek V4.1 Flash",
-   "hosts": "Vertex · Mistral",
+   "hosts": "Vertex",
    "price_in": 0.3,
    "price_out": 1.2,
    "intel": 33,
@@ -181,12 +181,12 @@
    "openrouter_ids": [
     "google/gemini-3.8-flash"
    ],
-   "discount": 0
+   "discount": 0.5
   },
   {
    "vendor": "Z.ai",
    "model": "GLM-5.3",
-   "hosts": "Inceptron · Mistral · Bedrock",
+   "hosts": "Bedrock · Inceptron · Mistral",
    "price_in": 1.4,
    "price_out": 3.96,
    "intel": 32,
@@ -206,8 +206,8 @@
    "vendor": "OpenAI",
    "model": "GPT-6.1 Terra",
    "hosts": "Bedrock · Azure",
-   "price_in": 1.1,
-   "price_out": 5.5,
+   "price_in": 1.0,
+   "price_out": 5.0,
    "intel": 51,
    "coding_agent": 48.2,
    "swe": null,
@@ -293,7 +293,7 @@
   {
    "vendor": "Anthropic",
    "model": "Claude Sonnet 5.5",
-   "hosts": "Bedrock · Vertex · Azure",
+   "hosts": "Bedrock · Azure · Vertex",
    "price_in": 2.0,
    "price_out": 10.0,
    "intel": 55,
@@ -329,7 +329,7 @@
    "openrouter_ids": [
     "google/gemini-4-argon"
    ],
-   "discount": 0
+   "discount": 0.5
   },
   {
    "vendor": "Moonshot",
@@ -359,7 +359,7 @@
   {
    "vendor": "Anthropic",
    "model": "Claude Opus 5.5",
-   "hosts": "Bedrock · Vertex · Azure",
+   "hosts": "Bedrock · Azure · Vertex",
    "price_in": 4.0,
    "price_out": 20.0,
    "intel": 59,
