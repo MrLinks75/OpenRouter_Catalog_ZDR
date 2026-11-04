@@ -30,6 +30,15 @@ Toutes les valeurs sont dans [`data/models.json`](data/models.json) (le champ `_
 
 Un push dont le message de commit contient `[prix]` lance aussi la mise à jour des prix (sinon, un push ne fait que régénérer la page).
 
+## Déploiement sur un GitLab privé
+
+Le fichier [`.gitlab-ci.yml`](.gitlab-ci.yml) publie la page sur GitLab Pages.
+
+- **Mode copie** (variable CI/CD `SYNC_FROM_GITHUB=true`) : récupère `data/models.json` depuis ce dépôt GitHub (prix quotidiens, scores hebdomadaires) et publie la page en interne. Aucun jeton requis.
+- **Mode autonome** (sans cette variable) : met à jour les prix via l'API OpenRouter et les enregistre dans le dépôt GitLab avec un jeton d'accès projet `GITLAB_PUSH_TOKEN` (rôle Developer, portée `write_repository`, masqué et protégé). Scores et couleur Utilisation à mettre à jour à la main.
+
+Mise en place : importer le dépôt par URL, régler Pages sur « Only project members » (Settings → General → Visibility), définir la variable du mode choisi, puis créer un pipeline planifié quotidien (Build → Pipeline schedules). Le runner doit pouvoir joindre `raw.githubusercontent.com` (mode copie) ou `openrouter.ai` (mode autonome).
+
 ## En local
 
 ```bash

@@ -1,0 +1,74 @@
+# Catalogue OpenRouter – déploiement sur une instance GitLab (privée)
+#
+# Deux modes, au choix via la variable CI/CD SYNC_FROM_GITHUB :
+#   - "true"  : copie data/models.json depuis le dépôt GitHub public (mis à jour par
+#               GitHub Actions + la tâche Claude du lundi), puis publie la page en interne.
+#               Rien à pousser, pas de jeton nécessaire.
+#   - absent  : autonome. Met à jour les prix via l'API OpenRouter, pousse les données
+#               dans le dépôt GitLab (jeton GITLAB_PUSH_TOKEN), puis publie la page.
+#               Les scores et la couleur Utilisation restent à mettre à jour à la main.
+#
+# Prérequis : un runner avec accès sortant à openrouter.ai (mode autonome) ou à
+# raw.githubusercontent.com (mode synchro), et GitLab Pages activé sur l'instance.
+
+stages: [data, pages]
+
+default:
+  image: python:3.12-slim
+
+variables:
+  GITHUB_RAW: "https://raw.githubusercontent.com/MrLinks75/OpenRouter_Catalog_ZDR/main"
+
+# Mode synchro : récupère les données publiées sur GitHub
+sync_from_github:
+  stage: data
+  rules:
+    - if: $SYNC_FROM_GITHUB == "true"
+  script:
+    - python3 -c "import urllib.request as u; [open(f'data/{f}','wb').write(u.urlopen('$GITHUB_RAW/data/'+f).read()) for f in ('models.json','candidates.json','warnings.json')]"
+  artifacts:
+    paths: [data/]
+    expire_in: 1 day
+
+# Mode autonome : prix et hébergeurs depuis l'API OpenRouter (planifié, manuel, ou commit contenant [prix])
+refresh_prices:
+  stage: data
+  rules:
+    - if: $SYNC_FROM_GITHUB == "true"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_COMMIT_MESSAGE =~ /\[prix\]/
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq git > /dev/null
+  script:
+    - python3 scripts/refresh_prices.py data/models.json
+    - git config user.name "gitlab-ci"
+    - git config user.email "gitlab-ci@${CI_SERVER_HOST}"
+    - git add data/
+    - |
+      if git diff --cached --quiet; then
+        echo "Aucun changement."
+      elif [ -z "$GITLAB_PUSH_TOKEN" ]; then
+        echo "GITLAB_PUSH_TOKEN absent : données mises à jour pour la page, mais non enregistrées dans le dépôt."
+      else
+        git commit -m "Prix OpenRouter du $(date -u +%F) [skip ci]"
+        git push "${CI_SERVER_PROTOCOL}://oauth2:${GITLAB_PUSH_TOKEN}@${CI_SERVER_HOST}:${CI_SERVER_PORT}/${CI_PROJECT_PATH}.git" "HEAD:${CI_DEFAULT_BRANCH}"
+      fi
+  artifacts:
+    paths: [data/]
+    expire_in: 1 day
+
+# Publication GitLab Pages (dossier public/)
+pages:
+  stage: pages
+  needs:
+    - job: sync_from_github
+      optional: true
+    - job: refresh_prices
+      optional: true
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    - python3 scripts/build.py data/models.json public --page
+  artifacts:
+    paths: [public]
