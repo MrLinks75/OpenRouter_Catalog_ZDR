@@ -2,7 +2,7 @@
 """Met à jour hébergeurs, prix et couleur Budget depuis l'API publique OpenRouter.
 
 Ne touche qu'aux champs hosts, price_in, price_out, discount, budget de data/models.json,
-et liste dans data/candidates.json les modèles récents des éditeurs suivis
+écrit dans data/warnings.json les modèles introuvables, et liste dans data/candidates.json les modèles récents des éditeurs suivis
 (à examiner par la tâche hebdomadaire). Pas de clé requise ; OPENROUTER_API_KEY est
 utilisée si présente.
 
@@ -50,10 +50,10 @@ def budget(price_out):
     return "R"
 
 
-def best_offer(model_id, providers):
+def offers_for(model_id, providers):
     data = get(f"{API}/models/{model_id}/endpoints")
     if not data or not data.get("data"):
-        return None
+        return []
     offers = []
     for ep in data["data"].get("endpoints", []):
         tag = (ep.get("tag") or "").lower()
@@ -72,6 +72,10 @@ def best_offer(model_id, providers):
         if pin <= 0 and pout <= 0:
             continue
         offers.append((pin, pout, prefix, float(p.get("discount") or 0)))
+    return offers
+
+
+def summarize(offers, providers):
     if not offers:
         return None
     hosts = sorted({o[2] for o in offers}, key=list(providers).index)
@@ -85,11 +89,7 @@ def main():
     providers = d["providers"]
     changes = []
     for m in d["models"]:
-        offer = None
-        for mid in m.get("openrouter_ids", []):
-            offer = best_offer(mid, providers)
-            if offer:
-                break
+        offer = summarize([o for mid in m.get("openrouter_ids", []) for o in offers_for(mid, providers)], providers)
         if not offer:
             changes.append(f"⚠️ {m['model']} : aucun endpoint chez les 5 hébergeurs (valeurs conservées)")
             continue
@@ -106,19 +106,22 @@ def main():
     catalog = get(f"{API}/models") or {"data": []}
     for mod in catalog["data"]:
         mid = mod.get("id", "")
-        if not mid.startswith(VENDORS) or mid in known or mid.endswith(":free"):
+        if not mid.startswith(VENDORS) or mid in known or ":" in mid:
             continue
         created = datetime.fromtimestamp(mod.get("created", 0), timezone.utc)
         if created < cutoff:
             continue
-        offer = best_offer(mid, providers)
+        offer = summarize(offers_for(mid, providers), providers)
         if offer:
             candidates.append({"id": mid, "name": mod.get("name"), "created": created.date().isoformat(), **offer})
 
-    if changes:
+    if any(not c.startswith("⚠️") for c in changes):
         d["prices_checked"] = date.today().isoformat()
     json.dump(d, open(PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump(candidates, open(os.path.join(os.path.dirname(PATH), "candidates.json"), "w", encoding="utf-8"),
+              ensure_ascii=False, indent=1)
+    warnings = [c for c in changes if c.startswith("⚠️")]
+    json.dump(warnings, open(os.path.join(os.path.dirname(PATH), "warnings.json"), "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
     print("\n".join(changes) or "Aucun changement de prix.")
     print(f"{len(candidates)} modèle(s) candidat(s) dans candidates.json")
