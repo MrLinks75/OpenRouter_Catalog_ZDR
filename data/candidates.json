@@ -1,5 +1,14 @@
 [
  {
+  "id": "anthropic/claude-fable-5.2",
+  "name": "Anthropic: Claude Fable 5.2",
+  "created": "2026-11-09",
+  "hosts": "Bedrock · Azure · Vertex",
+  "price_in": 8.0,
+  "price_out": 40.0,
+  "discount": 0.0
+ },
+ {
   "id": "openai/gpt-6.1-terra-pro",
   "name": "OpenAI: GPT-6.1 Terra Pro",
   "created": "2026-10-26",
