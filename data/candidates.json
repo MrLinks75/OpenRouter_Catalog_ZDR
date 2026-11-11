@@ -1,5 +1,14 @@
 [
  {
+  "id": "google/gemini-4-carbon",
+  "name": "Google: Gemini 4 Carbon",
+  "created": "2026-11-10",
+  "hosts": "Vertex",
+  "price_in": 2.0,
+  "price_out": 10.0,
+  "discount": 0.5
+ },
+ {
   "id": "anthropic/claude-fable-5.2",
   "name": "Anthropic: Claude Fable 5.2",
   "created": "2026-11-09",
