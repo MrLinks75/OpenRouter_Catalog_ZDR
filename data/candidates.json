@@ -1,5 +1,14 @@
 [
  {
+  "id": "google/gemini-4-hydrogen",
+  "name": "Google: Gemini 4 Hydrogen",
+  "created": "2026-11-12",
+  "hosts": "Vertex",
+  "price_in": 1.5,
+  "price_out": 7.5,
+  "discount": 0.0
+ },
+ {
   "id": "google/gemini-4-carbon",
   "name": "Google: Gemini 4 Carbon",
   "created": "2026-11-10",
@@ -24,6 +33,15 @@
   "hosts": "Azure",
   "price_in": 1.0,
   "price_out": 5.0,
+  "discount": 0.0
+ },
+ {
+  "id": "google/gemini-nano-banana-2.1",
+  "name": "Google: Nano Banana 2.1",
+  "created": "2026-10-06",
+  "hosts": "Vertex",
+  "price_in": 1.5,
+  "price_out": 7.5,
   "discount": 0.0
  },
  {
