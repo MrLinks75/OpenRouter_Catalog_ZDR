@@ -1,6 +1,6 @@
 {
  "_schema": "Prix en USD/M tokens (catalogue OpenRouter, moins cher des 5 hébergeurs, tarif standard). intel = AA Intelligence Index (effort max). coding_agent = AA Coding Agent Index (meilleur couple agent+modèle). swe.kind: P=SWE-bench Pro, V=Verified. mmmu.kind: ''=AA sans outils, '°'=effort normal. budget (V/O/R) = prix de sortie: V<=2.50, O<=8, R>8. usage (V/O/R) = jugement scores/prix. null = n.d. openrouter_ids = slugs OpenRouter (le premier qui répond est utilisé). hosts/price_in/price_out/discount/budget sont mis à jour chaque jour par scripts/refresh_prices.py ; le reste par la tâche hebdomadaire.",
- "date_label": "4 novembre 2026",
+ "date_label": "9 novembre 2026",
  "models": [
   {
    "vendor": "Anthropic",
@@ -78,7 +78,7 @@
    "speed": 165,
    "budget": "V",
    "usage": "V",
-   "note": "Codage agent au niveau de Large 4",
+   "note": "Codage agent proche de GLM-5.3",
    "openrouter_ids": [
     "deepseek/deepseek-v4.1-flash",
     "deepseek/deepseek-v4.1-flash-1017"
@@ -130,13 +130,13 @@
    "price_in": 0.7,
    "price_out": 2.1,
    "intel": 26,
-   "coding_agent": 48.3,
+   "coding_agent": 35.4,
    "swe": null,
    "mmmu": null,
    "speed": null,
    "budget": "V",
-   "usage": "V",
-   "note": "Option 100 % française",
+   "usage": "O",
+   "note": "100 % français, battu par Haiku",
    "openrouter_ids": [
     "mistralai/mistral-large-4-0"
    ],
@@ -252,7 +252,7 @@
    "hosts": "Mistral",
    "price_in": 1.5,
    "price_out": 7.5,
-   "intel": null,
+   "intel": 5,
    "coding_agent": null,
    "swe": {
     "value": "77,6",
@@ -261,8 +261,8 @@
    "mmmu": null,
    "speed": 162,
    "budget": "O",
-   "usage": "O",
-   "note": "Multimodal + code, peu évalué",
+   "usage": "R",
+   "note": "Intelligence 5, battu par Large 4",
    "openrouter_ids": [
     "mistralai/mistral-medium-3-5"
    ],
@@ -409,19 +409,19 @@
    "title": "Tous les jours",
    "code": "V",
    "names": "Haiku 5.5 · DeepSeek V4.1 Flash · Luna",
-   "text": "Haiku 5.5 et Luna coûtent 0,10 / 0,50 $, 20× moins que Sol. À prix égal, Haiku fait mieux (36 contre 28, codage agent 37 contre 31). DeepSeek V4.1 Flash monte à 47 en codage agent, comme Mistral Large 4. GLM-5.3 Flash pour le très gros volume."
+   "text": "Haiku 5.5 et Luna coûtent 0,10 / 0,50 $, 20× moins que Sol. À prix égal, Haiku fait mieux (36 contre 28, codage agent 37 contre 31). DeepSeek V4.1 Flash monte à 47 en codage agent, presque autant que GLM-5.3 (48,9) pour 3,5× moins cher. GLM-5.3 Flash pour le très gros volume."
   },
   {
    "title": "Cas précis",
    "code": "O",
    "names": "Opus 5.5 · Sonnet 5.5 · Sol · Terra",
-   "text": "Opus 5.5 est n°1 en codage agent (61,7) : archi, bugs coriaces, revues. Sonnet et Sol (2 / 10 $) pour les tâches longues, Sonnet en effort medium. Terra (1,10 / 5,50 $) est le compromis milieu de gamme, Argon pour l’automatisation."
+   "text": "Opus 5.5 est n°1 en codage agent (61,7) : archi, bugs coriaces, revues. Sonnet et Sol (2 / 10 $) pour les tâches longues, Sonnet en effort medium. Terra (1 / 5 $) est le compromis milieu de gamme, Argon pour l’automatisation, Mistral Large 4 si l’hébergement 100 % français prime."
   },
   {
    "title": "À éviter",
    "code": "R",
    "names": "Astra · Gemini 3.8 Flash · Kimi K3 · DeepSeek V4 Pro",
-   "text": "Astra coûte 5× Sol pour 2 points de plus. Gemini 3.8 Flash fait moins bien que Haiku pour 7× le prix en sortie. Kimi K3 et DeepSeek V4 Pro sont battus par moins cher. Devstral 2 est remplacé par Medium 3.5."
+   "text": "Astra coûte 5× Sol pour 2 points de plus. Gemini 3.8 Flash fait moins bien que Haiku pour 7× le prix en sortie. Kimi K3 et DeepSeek V4 Pro sont battus par moins cher. Mistral Medium 3.5 (5 à l’AA Index) est battu par Large 4 ; Devstral 2 est remplacé."
   }
  ],
  "notes": [
@@ -431,7 +431,7 @@
   },
   {
    "title": "Prix",
-   "text": "Catalogue OpenRouter au 04/11/2026, chez le moins cher des cinq hébergeurs, tarif standard. Les endpoints régionaux EU coûtent environ 10 % de plus. Vertex propose aussi un tarif flex à -50 % sur Gemini."
+   "text": "Catalogue OpenRouter au 12/11/2026, chez le moins cher des cinq hébergeurs, tarif standard. Les endpoints régionaux EU coûtent environ 10 % de plus. Vertex propose aussi un tarif flex à -50 % sur Gemini."
   },
   {
    "title": "Google / Gemini",
@@ -439,12 +439,12 @@
   },
   {
    "title": "Lecture des scores",
-   "text": "Intelligence : AA Index, effort max (04/11/2026). Codage avancé : AA Coding Agent Index, couple agent + modèle (29/10/2026). SWE-bench : éditeurs (P = Pro, V = Verified), sauf Kimi K3 (Vals.ai) ; non comparables entre eux. MMMU-Pro : runs AA sans outils."
+   "text": "Intelligence : AA Index, effort max (09/11/2026). Codage avancé : AA Coding Agent Index, couple agent + modèle (06/11/2026). SWE-bench : éditeurs (P = Pro, V = Verified), sauf Kimi K3 (Vals.ai) ; non comparables entre eux. MMMU-Pro : runs AA sans outils."
   }
  ],
- "sources": "OpenRouter, pages hébergeurs Bedrock, Azure, Vertex, Inceptron et Mistral (04/11/2026) · Artificial Analysis, classement des modèles (04/11/2026) · AA Coding Agent Index via BenchLM (29/10/2026) · MMMU-Pro AA via LLM Learner · SWE-bench : Anthropic, Mistral, Z.ai, DeepSeek, Vals.ai. Prix en USD.",
+ "sources": "OpenRouter, pages hébergeurs Bedrock, Azure, Vertex, Inceptron et Mistral (09/11/2026) · Artificial Analysis, classement des modèles (09/11/2026) · AA Coding Agent Index via BenchLM (06/11/2026) · MMMU-Pro AA via LLM Learner · SWE-bench : Anthropic, Mistral, Z.ai, DeepSeek, Vals.ai. Prix en USD.",
  "prices_checked": "2026-11-12",
- "scores_checked": "2026-11-04",
+ "scores_checked": "2026-11-09",
  "providers": {
   "amazon-bedrock": "Bedrock",
   "azure": "Azure",
