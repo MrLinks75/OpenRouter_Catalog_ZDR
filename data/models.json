@@ -68,9 +68,9 @@
   {
    "vendor": "DeepSeek",
    "model": "DeepSeek V4.1 Flash",
-   "hosts": "Vertex · Mistral",
-   "price_in": 0.3,
-   "price_out": 1.2,
+   "hosts": "Vertex · Inceptron · Mistral",
+   "price_in": 0.24,
+   "price_out": 0.96,
    "intel": 33,
    "coding_agent": 47.3,
    "swe": null,
@@ -83,7 +83,7 @@
     "deepseek/deepseek-v4.1-flash",
     "deepseek/deepseek-v4.1-flash-1017"
    ],
-   "discount": 0
+   "discount": 0.2
   },
   {
    "vendor": "Mistral",
@@ -443,7 +443,7 @@
   }
  ],
  "sources": "OpenRouter, pages hébergeurs Bedrock, Azure, Vertex, Inceptron et Mistral (09/11/2026) · Artificial Analysis, classement des modèles (09/11/2026) · AA Coding Agent Index via BenchLM (06/11/2026) · MMMU-Pro AA via LLM Learner · SWE-bench : Anthropic, Mistral, Z.ai, DeepSeek, Vals.ai. Prix en USD.",
- "prices_checked": "2026-11-17",
+ "prices_checked": "2026-11-18",
  "scores_checked": "2026-11-09",
  "providers": {
   "amazon-bedrock": "Bedrock",
