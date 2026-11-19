@@ -69,8 +69,8 @@
    "vendor": "DeepSeek",
    "model": "DeepSeek V4.1 Flash",
    "hosts": "Vertex · Inceptron · Mistral",
-   "price_in": 0.24,
-   "price_out": 0.96,
+   "price_in": 0.1,
+   "price_out": 0.6,
    "intel": 33,
    "coding_agent": 47.3,
    "swe": null,
@@ -83,7 +83,7 @@
     "deepseek/deepseek-v4.1-flash",
     "deepseek/deepseek-v4.1-flash-1017"
    ],
-   "discount": 0.2
+   "discount": 0.0
   },
   {
    "vendor": "Mistral",
@@ -146,8 +146,8 @@
    "vendor": "Moonshot",
    "model": "Kimi K2.7 Code",
    "hosts": "Inceptron",
-   "price_in": 0.7,
-   "price_out": 3.75,
+   "price_in": 0.65,
+   "price_out": 3.5,
    "intel": null,
    "coding_agent": null,
    "swe": null,
@@ -187,8 +187,8 @@
    "vendor": "Z.ai",
    "model": "GLM-5.3",
    "hosts": "Bedrock · Inceptron · Mistral",
-   "price_in": 1.0,
-   "price_out": 3.85,
+   "price_in": 1.05,
+   "price_out": 3.4,
    "intel": 32,
    "coding_agent": 48.9,
    "swe": null,
@@ -205,7 +205,7 @@
   {
    "vendor": "OpenAI",
    "model": "GPT-6.1 Terra",
-   "hosts": "Bedrock · Azure",
+   "hosts": "Azure",
    "price_in": 1.0,
    "price_out": 5.0,
    "intel": 51,
@@ -443,7 +443,7 @@
   }
  ],
  "sources": "OpenRouter, pages hébergeurs Bedrock, Azure, Vertex, Inceptron et Mistral (09/11/2026) · Artificial Analysis, classement des modèles (09/11/2026) · AA Coding Agent Index via BenchLM (06/11/2026) · MMMU-Pro AA via LLM Learner · SWE-bench : Anthropic, Mistral, Z.ai, DeepSeek, Vals.ai. Prix en USD.",
- "prices_checked": "2026-11-18",
+ "prices_checked": "2026-11-19",
  "scores_checked": "2026-11-09",
  "providers": {
   "amazon-bedrock": "Bedrock",
