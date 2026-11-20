@@ -1,5 +1,14 @@
 [
  {
+  "id": "mistralai/pixtral-large-2502",
+  "name": "Mistral: Pixtral Large 2502",
+  "created": "2026-11-20",
+  "hosts": "Bedrock",
+  "price_in": 2.0,
+  "price_out": 6.0,
+  "discount": 0.0
+ },
+ {
   "id": "google/gemini-4-neon",
   "name": "Google: Gemini 4 Neon",
   "created": "2026-11-18",
