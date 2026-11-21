@@ -97,14 +97,5 @@
   "price_in": 4.0,
   "price_out": 20.0,
   "discount": 0.0
- },
- {
-  "id": "google/gemini-nano-banana-2.1",
-  "name": "Google: Nano Banana 2.1",
-  "created": "2026-10-06",
-  "hosts": "Vertex",
-  "price_in": 1.5,
-  "price_out": 7.5,
-  "discount": 0.0
  }
 ]
