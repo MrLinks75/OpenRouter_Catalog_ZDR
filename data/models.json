@@ -27,7 +27,7 @@
   {
    "vendor": "OpenAI",
    "model": "GPT-6 Luna",
-   "hosts": "Bedrock · Azure",
+   "hosts": "Bedrock · Azure · Vertex",
    "price_in": 0.1,
    "price_out": 0.5,
    "intel": 28,
@@ -443,7 +443,7 @@
   }
  ],
  "sources": "OpenRouter, pages hébergeurs Bedrock, Azure, Vertex, Inceptron et Mistral (09/11/2026) · Artificial Analysis, classement des modèles (09/11/2026) · AA Coding Agent Index via BenchLM (06/11/2026) · MMMU-Pro AA via LLM Learner · SWE-bench : Anthropic, Mistral, Z.ai, DeepSeek, Vals.ai. Prix en USD.",
- "prices_checked": "2026-11-24",
+ "prices_checked": "2026-11-25",
  "scores_checked": "2026-11-09",
  "providers": {
   "amazon-bedrock": "Bedrock",
