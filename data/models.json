@@ -48,7 +48,7 @@
    "model": "GLM-5.3 Flash",
    "hosts": "Inceptron · Mistral",
    "price_in": 0.15,
-   "price_out": 0.5,
+   "price_out": 0.3,
    "intel": 28,
    "coding_agent": null,
    "swe": {
@@ -443,7 +443,7 @@
   }
  ],
  "sources": "OpenRouter, pages hébergeurs Bedrock, Azure, Vertex, Inceptron et Mistral (09/11/2026) · Artificial Analysis, classement des modèles (09/11/2026) · AA Coding Agent Index via BenchLM (06/11/2026) · MMMU-Pro AA via LLM Learner · SWE-bench : Anthropic, Mistral, Z.ai, DeepSeek, Vals.ai. Prix en USD.",
- "prices_checked": "2026-11-25",
+ "prices_checked": "2026-11-27",
  "scores_checked": "2026-11-09",
  "providers": {
   "amazon-bedrock": "Bedrock",
